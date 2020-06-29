@@ -19,8 +19,7 @@ spring:
           query.timeout: 10000
   datasource:
     driverClassName: org.h2.Driver
-    #url: jdbc:h2:mem:dota
-    url: jdbc:h2:tcp://localhost/D:/Work/Java_Assignments/Bayes/dota-db/dota-db;DB_CLOSE_ON_EXIT=TRUE;FILE_LOCK=NO
+    url: jdbc:h2:mem:dota
     username: sa
     password: password
   banner:

@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 
 import gg.bayes.challenge.dao.entity.Event;
 
+/**
+ * Repository class for entity Event
+ * @author Bharadwaj.Adepu
+ *
+ */
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long>{
 
@@ -18,7 +23,7 @@ public interface EventRepository extends JpaRepository<Event, Long>{
 			"where match_id = :matchId\r\n" + 
 			"and event_type = 'killed'\r\n" + 
 			"and hero like '%hero%'\r\n" +
-			"group by spell", 
+			"group by hero", 
 			nativeQuery = true)
 	List<Tuple> fetchKills(@Param("matchId") Long matchId);
 	
@@ -44,6 +49,4 @@ public interface EventRepository extends JpaRepository<Event, Long>{
 			"group by event_target",
 			nativeQuery = true)
 	List<Tuple> fetchDamages(@Param("matchId") Long matchId, @Param("heroName") String heroName);
-	
-	
 }
